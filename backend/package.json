@@ -1,0 +1,34 @@
+{
+  "name": "edtech-backend",
+  "version": "1.0.0",
+  "description": "Mini EdTech Platform Backend",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "echo 'No build step required'",
+    "db:push": "npx prisma db push",
+    "db:seed": "npx prisma db seed",
+    "db:studio": "npx prisma studio"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "apollo-server-express": "^3.12.0",
+    "graphql": "^16.6.0",
+    "@prisma/client": "^5.0.0",
+    "prisma": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["edtech", "graphql", "prisma", "express"],
+  "author": "Your Name",
+  "license": "MIT"
+}
