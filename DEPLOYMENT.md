@@ -26,17 +26,26 @@
    - Connect your GitHub repository
    - Render will automatically detect the `render.yaml` file
 
-3. **Configure Environment Variables**:
+3. **Environment Variables Configuration**:
    
-   **Backend Service**:
-   - `DATABASE_URL`: Your PostgreSQL connection string
-   - `JWT_SECRET`: A secure random string for JWT tokens
-   - `NODE_ENV`: production
-   - `PORT`: 10000 (automatically set by Render)
+   **✅ Automatic Configuration**: Most environment variables are automatically configured via `render.yaml`:
+   
+   **Backend Service** (Auto-configured):
+   - `DATABASE_URL`: Automatically linked to PostgreSQL database
+   - `JWT_SECRET`: Auto-generated secure secret
+   - `NODE_ENV`: Set to production
+   - `PORT`: Set to 10000
+   - `FRONTEND_URL`: Set to your frontend URL
+   - `DATABASE_CONNECTION_LIMIT`: Set to 10
+   - `BCRYPT_ROUNDS`: Set to 12
 
-   **Frontend Service**:
-   - `NEXT_PUBLIC_API_URL`: Your backend GraphQL endpoint
-   - `NODE_ENV`: production
+   **Frontend Service** (Auto-configured):
+   - `NEXT_PUBLIC_GRAPHQL_URL`: Set to your backend GraphQL endpoint
+   - `NODE_ENV`: Set to production
+   - `NEXT_PUBLIC_APP_NAME`: Set to "Mini EdTech Platform"
+   - `NEXT_PUBLIC_APP_VERSION`: Set to "1.0.0"
+   
+   **📋 Manual Setup**: Only needed if you want custom values (see `PRODUCTION-CONFIG.md`)
 
 4. **Database Setup** (if using PostgreSQL):
    - Create a PostgreSQL database on Render
