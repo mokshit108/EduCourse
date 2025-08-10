@@ -27,14 +27,11 @@ services:
       - key: BCRYPT_ROUNDS
         value: 12
 
-  # Frontend Web Service
-  - type: web
+  # Frontend Static Site
+  - type: static
     name: edtech-frontend
-    env: node
-    plan: free
-    rootDir: frontend
     buildCommand: npm install --include=dev && npm run build
-    startCommand: npm start
+    publishDir: frontend/out
     envVars:
       - key: NODE_ENV
         value: production
