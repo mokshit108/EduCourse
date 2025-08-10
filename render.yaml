@@ -19,7 +19,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://edtech-frontend.onrender.com
+        value: https://educourse-5dx4.onrender.com
       - key: DATABASE_CONNECTION_LIMIT
         value: 10
       - key: DATABASE_TIMEOUT
@@ -36,7 +36,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_GRAPHQL_URL
-        value: https://edtech-backend.onrender.com/graphql
+        value: https://your-backend-app.onrender.com/graphql
       - key: NEXT_PUBLIC_APP_NAME
         value: "Mini EdTech Platform"
       - key: NEXT_PUBLIC_APP_VERSION
