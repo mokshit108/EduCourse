@@ -1,0 +1,263 @@
+# Mini EdTech Platform
+
+A full-stack educational technology platform built with modern web technologies. This platform allows users to browse courses, enroll as students or professors, and manage educational content.
+
+## 🚀 Overview
+
+The Mini EdTech Platform consists of two main components:
+- **Frontend**: Next.js application with React, TypeScript, and Tailwind CSS
+- **Backend**: Node.js GraphQL API with Express, Apollo Server, and Prisma
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework**: Next.js 13
+- **Language**: TypeScript
+- **UI**: React 18 + Tailwind CSS
+- **GraphQL Client**: Apollo Client
+- **Forms**: React Hook Form
+
+### Backend
+- **Runtime**: Node.js
+- **API**: GraphQL with Apollo Server
+- **Database**: PostgreSQL with Prisma ORM
+- **Authentication**: JWT + bcryptjs
+- **Framework**: Express.js
+
+## 📁 Project Structure
+
+```
+mini-edtech-platform/
+├── frontend/                 # Next.js frontend application
+│   ├── src/
+│   │   ├── components/       # Reusable UI components
+│   │   ├── pages/           # Next.js pages and routing
+│   │   ├── graphql/         # GraphQL queries and mutations
+│   │   ├── context/         # React context providers
+│   │   ├── lib/             # Utility libraries
+│   │   ├── styles/          # Global styles
+│   │   ├── types/           # TypeScript definitions
+│   │   └── utils/           # Helper functions
+│   ├── package.json
+│   └── README               # Frontend documentation
+├── backend/                  # Node.js GraphQL backend
+│   ├── src/
+│   │   ├── resolvers/       # GraphQL resolvers
+│   │   ├── schema/          # GraphQL schema definitions
+│   │   ├── middleware/      # Authentication middleware
+│   │   └── server.js        # Main server file
+│   ├── prisma/
+│   │   ├── schema.prisma    # Database schema
+│   │   ├── migrations/      # Database migrations
+│   │   └── seed.js          # Database seeding
+│   ├── package.json
+│   └── README               # Backend documentation
+├── deploy.sh                 # Deployment script
+├── render.yaml              # Render deployment config
+└── README                   # This file
+```
+
+## 🚦 Quick Start
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- PostgreSQL database
+- npm or yarn
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd mini-edtech-platform
+```
+
+### 2. Backend Setup
+
+```bash
+cd backend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your database URL and JWT secret
+
+# Set up database
+npm run db:push
+npm run db:seed
+
+# Start backend server
+npm run dev
+```
+
+The backend will be available at `http://localhost:4000/graphql`
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your backend URL
+
+# Start frontend server
+npm run dev
+```
+
+The frontend will be available at `http://localhost:3000`
+
+## 🌟 Features
+
+### User Management
+- User registration and authentication
+- JWT-based secure authentication
+- User profile management
+
+### Course Management
+- Create, read, update, and delete courses
+- Course levels (Beginner, Intermediate, Advanced)
+- Course descriptions and metadata
+
+### Enrollment System
+- Enroll as student or professor
+- View enrolled courses
+- Manage enrollments
+
+### Modern UI/UX
+- Responsive design for all devices
+- Clean and intuitive interface
+- Real-time updates with GraphQL
+
+## 🔧 Development
+
+### Backend Development
+
+```bash
+cd backend
+
+# Development with hot reload
+npm run dev
+
+# Database operations
+npm run db:push      # Push schema changes
+npm run db:seed      # Seed database
+npm run db:studio    # Open Prisma Studio
+```
+
+### Frontend Development
+
+```bash
+cd frontend
+
+# Development server
+npm run dev
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+
+# Production build
+npm run build
+```
+
+## 🚀 Deployment
+
+The platform is configured for deployment on Render.com with the included `render.yaml` configuration.
+
+### Environment Variables
+
+#### Backend
+- `DATABASE_URL` - PostgreSQL connection string
+- `JWT_SECRET` - Secret key for JWT tokens
+- `PORT` - Server port (default: 4000)
+- `FRONTEND_URL` - Frontend URL for CORS
+
+#### Frontend
+- `NEXT_PUBLIC_GRAPHQL_URL` - GraphQL endpoint URL
+- `NEXT_PUBLIC_API_URL` - Backend API base URL
+
+### Deployment Steps
+
+1. Set up PostgreSQL database
+2. Configure environment variables
+3. Deploy backend service
+4. Deploy frontend service
+5. Run database migrations and seeding
+
+## 📊 API Documentation
+
+The GraphQL API provides the following main operations:
+
+### Queries
+- `users` - Get all users
+- `courses` - Get all courses
+- `course(id)` - Get specific course
+- `me` - Get current user
+
+### Mutations
+- `register` - User registration
+- `login` - User authentication
+- `createCourse` - Create new course
+- `updateCourse` - Update course
+- `deleteCourse` - Delete course
+- `enrollInCourse` - Enroll in course
+
+## 🗄️ Database Schema
+
+### Models
+- **User**: User accounts with authentication
+- **Course**: Educational courses with levels
+- **Enrollment**: User-course relationships
+
+### Relationships
+- Users can have multiple enrollments
+- Courses can have multiple enrollments
+- Enrollments link users to courses with roles
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 Documentation
+
+- [Frontend Documentation](./frontend/README)
+- [Backend Documentation](./backend/README)
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Production Configuration](./PRODUCTION-CONFIG.md)
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Database Connection**: Ensure PostgreSQL is running and DATABASE_URL is correct
+2. **CORS Errors**: Check FRONTEND_URL in backend environment variables
+3. **Build Errors**: Ensure all dependencies are installed with `npm install`
+4. **Authentication Issues**: Verify JWT_SECRET is set in backend environment
+
+### Getting Help
+
+- Check the individual README files in frontend/ and backend/ directories
+- Review the deployment documentation
+- Check the GraphQL playground at `/graphql` for API testing
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with modern web technologies
+- Inspired by educational technology needs
+- Designed for scalability and maintainability

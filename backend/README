@@ -1,0 +1,187 @@
+# EdTech Platform Backend
+
+A GraphQL-based backend for a mini educational technology platform built with Node.js, Express, Apollo Server, and Prisma.
+
+## 🚀 Features
+
+- **GraphQL API** with Apollo Server
+- **Database Management** with Prisma ORM
+- **PostgreSQL** database support
+- **User Authentication** with JWT tokens
+- **Course Management** system
+- **Enrollment System** for students and professors
+- **CORS** enabled for cross-origin requests
+
+## 🛠️ Tech Stack
+
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **GraphQL**: Apollo Server Express
+- **Database**: PostgreSQL
+- **ORM**: Prisma
+- **Authentication**: JWT + bcryptjs
+- **Development**: Nodemon
+
+## 📁 Project Structure
+
+```
+backend/
+├── src/
+│   ├── middleware/
+│   │   └── auth.js          # JWT authentication middleware
+│   ├── resolvers/
+│   │   ├── courseResolvers.js    # Course-related GraphQL resolvers
+│   │   ├── userResolvers.js      # User-related GraphQL resolvers
+│   │   └── enrollmentResolvers.js # Enrollment-related GraphQL resolvers
+│   ├── schema/
+│   │   └── typeDefs.js      # GraphQL schema definitions
+│   └── server.js            # Main server file
+├── prisma/
+│   ├── schema.prisma        # Database schema
+│   ├── migrations/          # Database migrations
+│   └── seed.js             # Database seeding script
+├── generated/              # Prisma generated files
+├── package.json
+└── .env                    # Environment variables
+```
+
+## 🗄️ Database Schema
+
+### Models
+
+- **User**: User accounts with authentication
+- **Course**: Educational courses with different levels
+- **Enrollment**: Relationship between users and courses
+
+### Enums
+
+- **CourseLevel**: BEGINNER, INTERMEDIATE, ADVANCED
+- **EnrollmentRole**: STUDENT, PROFESSOR
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- PostgreSQL database
+- npm or yarn
+
+### Installation
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables**:
+   Create a `.env` file in the backend directory:
+   ```env
+   DATABASE_URL="postgresql://username:password@localhost:5432/edtech_db"
+   JWT_SECRET="your-jwt-secret-key"
+   PORT=4000
+   FRONTEND_URL="http://localhost:3000"
+   ```
+
+3. **Set up the database**:
+   ```bash
+   # Push the schema to your database
+   npm run db:push
+   
+   # Seed the database with initial data
+   npm run db:seed
+   ```
+
+### Development
+
+```bash
+# Start development server with hot reload
+npm run dev
+```
+
+The server will start at `http://localhost:4000` with GraphQL endpoint at `/graphql`.
+
+### Production
+
+```bash
+# Start production server
+npm start
+```
+
+## 📊 Available Scripts
+
+- `npm run dev` - Start development server with nodemon
+- `npm start` - Start production server
+- `npm run build` - No build step required (placeholder)
+- `npm run db:push` - Push Prisma schema to database
+- `npm run db:seed` - Seed database with initial data
+- `npm run db:seed-production` - Seed production database
+- `npm run db:studio` - Open Prisma Studio
+
+## 🔧 GraphQL API
+
+### Endpoints
+
+- **GraphQL Playground**: `http://localhost:4000/graphql` (development only)
+- **GraphQL API**: `http://localhost:4000/graphql`
+
+### Key Queries
+
+- `users` - Get all users
+- `courses` - Get all courses
+- `course(id)` - Get specific course
+- `me` - Get current authenticated user
+
+### Key Mutations
+
+- `register` - Register new user
+- `login` - User authentication
+- `createCourse` - Create new course
+- `updateCourse` - Update existing course
+- `deleteCourse` - Delete course
+- `enrollInCourse` - Enroll user in course
+
+## 🔐 Authentication
+
+The API uses JWT tokens for authentication. Include the token in the Authorization header:
+
+```
+Authorization: Bearer <your-jwt-token>
+```
+
+## 🌐 CORS Configuration
+
+The server is configured to accept requests from:
+- `http://localhost:3000` (development frontend)
+- Production frontend URLs
+- Render deployment URLs
+
+## 📝 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | Required |
+| `JWT_SECRET` | Secret key for JWT tokens | Required |
+| `PORT` | Server port | 4000 |
+| `FRONTEND_URL` | Frontend URL for CORS | http://localhost:3000 |
+| `NODE_ENV` | Environment mode | development |
+
+## 🚀 Deployment
+
+The backend is configured for deployment on platforms like Render, Heroku, or similar services. Make sure to:
+
+1. Set all required environment variables
+2. Use production database URL
+3. Run database migrations
+4. Seed production data if needed
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.

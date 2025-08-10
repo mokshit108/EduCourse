@@ -1,0 +1,248 @@
+# EdTech Platform Frontend
+
+A modern, responsive frontend for the mini educational technology platform built with Next.js, React, TypeScript, and Apollo Client.
+
+## 🚀 Features
+
+- **Modern React** with TypeScript support
+- **Next.js** for server-side rendering and routing
+- **GraphQL Integration** with Apollo Client
+- **Responsive Design** with Tailwind CSS
+- **Form Management** with React Hook Form
+- **Authentication** system with JWT
+- **Course Management** interface
+- **User Enrollment** system
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 13
+- **Language**: TypeScript
+- **UI Library**: React 18
+- **Styling**: Tailwind CSS
+- **GraphQL Client**: Apollo Client
+- **Form Handling**: React Hook Form
+- **Development**: ESLint, PostCSS
+
+## 📁 Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── context/            # React context providers
+│   ├── graphql/            # GraphQL queries and mutations
+│   ├── lib/                # Utility libraries and configurations
+│   ├── pages/              # Next.js pages and routing
+│   │   ├── course/         # Course-related pages
+│   │   ├── enrollment/     # Enrollment pages
+│   │   ├── index.tsx       # Home page
+│   │   ├── login.tsx       # Login page
+│   │   └── _app.tsx        # App wrapper
+│   ├── styles/             # Global styles and CSS
+│   ├── types/              # TypeScript type definitions
+│   └── utils/              # Utility functions
+├── public/                 # Static assets
+├── .next/                  # Next.js build output
+├── package.json
+├── tsconfig.json           # TypeScript configuration
+├── tailwind.config.js      # Tailwind CSS configuration
+├── next.config.js          # Next.js configuration
+└── .env.local              # Environment variables
+```
+
+## 🎨 Pages & Features
+
+### Core Pages
+
+- **Home (`/`)** - Landing page with course overview
+- **Login (`/login`)** - User authentication
+- **Course Details (`/course/[id]`)** - Individual course information
+- **Course Edit (`/course/[id]/edit`)** - Course editing interface
+- **Enrollment Confirmation (`/enrollment/confirmation`)** - Enrollment success page
+
+### Key Features
+
+- **User Authentication** - Login/logout functionality
+- **Course Browsing** - View available courses
+- **Course Management** - Create, edit, and delete courses
+- **Enrollment System** - Enroll in courses as student or professor
+- **Responsive Design** - Mobile-friendly interface
+- **Type Safety** - Full TypeScript support
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend server running
+
+### Installation
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables**:
+   Create a `.env.local` file in the frontend directory:
+   ```env
+   NEXT_PUBLIC_GRAPHQL_URL=http://localhost:4000/graphql
+   NEXT_PUBLIC_API_URL=http://localhost:4000
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:3000`.
+
+### Development
+
+```bash
+# Start development server
+npm run dev
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+```
+
+### Production Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## 📊 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+
+## 🔧 GraphQL Integration
+
+The frontend uses Apollo Client to communicate with the GraphQL backend:
+
+### Configuration
+
+Apollo Client is configured in the app to:
+- Connect to the backend GraphQL endpoint
+- Handle authentication tokens
+- Manage caching and state
+- Provide error handling
+
+### Usage Example
+
+```typescript
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_COURSES, CREATE_COURSE } from '../graphql/queries';
+
+// Query example
+const { data, loading, error } = useQuery(GET_COURSES);
+
+// Mutation example
+const [createCourse] = useMutation(CREATE_COURSE);
+```
+
+## 🎨 Styling & UI
+
+### Tailwind CSS
+
+The project uses Tailwind CSS for styling:
+- Utility-first CSS framework
+- Responsive design utilities
+- Custom configuration in `tailwind.config.js`
+- PostCSS integration
+
+### Component Structure
+
+- Reusable components in `/src/components`
+- Page-specific components within page directories
+- Consistent styling patterns
+- Mobile-first responsive design
+
+## 🔐 Authentication
+
+The frontend handles authentication through:
+- JWT token storage
+- Protected routes
+- Authentication context
+- Automatic token refresh
+- Login/logout functionality
+
+## 📱 Responsive Design
+
+The application is fully responsive with:
+- Mobile-first approach
+- Tablet and desktop optimizations
+- Touch-friendly interfaces
+- Accessible design patterns
+
+## 🌐 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_GRAPHQL_URL` | GraphQL endpoint URL | Required |
+| `NEXT_PUBLIC_API_URL` | Backend API base URL | Required |
+
+## 🚀 Deployment
+
+The frontend can be deployed on platforms like Vercel, Netlify, or similar:
+
+### Vercel (Recommended)
+
+1. Connect your repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push
+
+### Manual Deployment
+
+1. Build the application: `npm run build`
+2. Deploy the `.next` folder and static assets
+3. Set up environment variables on your hosting platform
+
+## 🔧 Configuration Files
+
+- **`next.config.js`** - Next.js configuration
+- **`tsconfig.json`** - TypeScript configuration
+- **`tailwind.config.js`** - Tailwind CSS configuration
+- **`postcss.config.js`** - PostCSS configuration
+
+## 🧪 Development Guidelines
+
+### Code Style
+
+- Use TypeScript for type safety
+- Follow React best practices
+- Use functional components with hooks
+- Implement proper error handling
+- Write descriptive component names
+
+### File Organization
+
+- Group related files together
+- Use index files for clean imports
+- Separate concerns (components, utils, types)
+- Keep components small and focused
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Follow the coding standards
+4. Test your changes
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
