@@ -9,6 +9,7 @@
     "build": "echo 'No build step required'",
     "db:push": "npx prisma db push",
     "db:seed": "npx prisma db seed",
+    "db:seed-production": "node seed-production.js",
     "db:studio": "npx prisma studio"
   },
   "prisma": {
