@@ -1,7 +1,7 @@
 services:
   # Backend API Service
   - type: web
-    name: edtech-backend
+    name: educourse-backend
     env: node
     plan: free
     rootDir: backend
@@ -29,14 +29,14 @@ services:
 
   # Frontend Static Site
   - type: static
-    name: edtech-frontend
+    name: educourse
     buildCommand: npm install --include=dev && npm run build
     publishDir: frontend/out
     envVars:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_GRAPHQL_URL
-        value: https://your-backend-app.onrender.com/graphql
+        value: https://educourse-backend.onrender.com/graphql
       - key: NEXT_PUBLIC_APP_NAME
         value: "Mini EdTech Platform"
       - key: NEXT_PUBLIC_APP_VERSION
